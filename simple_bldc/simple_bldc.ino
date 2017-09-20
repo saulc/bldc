@@ -2,6 +2,8 @@
 
 #include <PinChangeInt.h>
 
+//variable names haha..
+
 int a = 9;
 int b = 10;
 int c = 11;
@@ -40,12 +42,13 @@ void ca(){
 
 }
 void setup() {
-
+//todo: use these pc ints to move to the next step
+//instead of timer/counter
 //  attachPinChangeInterrupt(9, ca, CHANGE);
 //  attachPinChangeInterrupt(10, ca, CHANGE);
 //  attachPinChangeInterrupt(11, ca, CHANGE);
   
-  Timer1.initialize(500);
+  Timer1.initialize(200);
   Timer1.attachInterrupt(updateMotor);
 
   
@@ -202,12 +205,12 @@ void loop() {
  
     if(s++ > mx){
        tt = analogRead(5);
-      tt = map(tt, 0, 1023, 0 , 100);
+      tt = map(tt, 0, 1023, 0 , 130);
       s = 0;
     }
 
     //stop 
-    if(tt > 90) {
+    if(tt > 125) {
       neutural();
       delay(10);
       return;
